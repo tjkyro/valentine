@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will you be my Valentine?</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card" id="main-card">
+            <!-- Cute GIF Placeholder -->
+            <div class="gif-placeholder" aria-hidden="true">
+                <!-- Replace src with actual cute gif if desired -->
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmo3c3l5ODh3ZGN6NHhhaWx1Y2h1cHRwb3p1emZ1aXk1aXZ3aXN0diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/3o7TKoWXm3okO1kgHC/giphy.gif"
+                    alt="Cute bear animation" class="cute-gif">
+            </div>
+
+            <h1 class="title">Camilly Victoria Reis Soares, will you be my Valentine?</h1>
+
+            <div class="buttons">
+                <button id="yes-btn" class="btn yes-btn">Yes</button>
+                <button id="no-btn" class="btn no-btn">No</button>
+            </div>
+        </div>
+
+        <!-- Hidden celebration container -->
+        <div id="celebration" class="hidden">
+            <h1 class="celebration-text">YAYYY!!</h1>
+            <p class="celebration-message">I knew you'd say yes 🤍 (you really didn't have a choice)</p>
+            <div class="confetti-container" id="confetti-container"></div>
+        </div>
+    </div>
+
+    <!-- Hidden Audio Player -->
+    <audio id="bg-music" src="https://suamusica.com.br/playlist/jamesbatista18018DLNWXoYG/como-eu-quero-kid-abelha.mp3"
+        loop></audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
