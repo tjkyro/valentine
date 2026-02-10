@@ -1,0 +1,226 @@
+:root {
+    --primary-color: #ff4d6d;
+    --secondary-color: #ff8fa3;
+    --bg-gradient: linear-gradient(135deg, #fff0f3 0%, #ffccd5 100%);
+    --card-bg: white;
+    --text-color: #590d22;
+    --shadow: 0 10px 25px rgba(255, 77, 109, 0.2);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Indie Flower', cursive;
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    /* Prevent scrollbars from moving elements */
+    color: var(--text-color);
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 2rem 3rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    max-width: 90%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.title {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #ff0a54;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: #ff4d6d;
+    margin-bottom: 2rem;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    /* Allow wrapping on very small screens */
+}
+
+.btn {
+    padding: 12px 32px;
+    font-size: 1.5rem;
+    font-family: inherit;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s;
+    outline: none;
+}
+
+.btn:focus-visible {
+    outline: 3px solid var(--text-color);
+    outline-offset: 2px;
+}
+
+#yes-btn {
+    background-color: #2ecc71;
+    /* Nice green for yes */
+    color: white;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+    z-index: 20;
+    /* Ensure Yes is always on top of moving No */
+}
+
+#yes-btn:hover {
+    background-color: #27ae60;
+    transform: scale(1.05);
+    /* Slight hover scale */
+}
+
+#no-btn {
+    background-color: #ff4d6d;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.3);
+    /* Position needs to be controllable by JS */
+    position: relative;
+    z-index: 15;
+}
+
+#no-btn:hover {
+    background-color: #d90429;
+}
+
+/* Shake Animation */
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateX(5px) rotate(5deg);
+    }
+
+    75% {
+        transform: translateX(-5px) rotate(-5deg);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.shake {
+    animation: shake 0.4s ease-in-out;
+}
+
+/* Celebration State */
+#celebration {
+    text-align: center;
+    padding: 2rem;
+    animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.celebration-text {
+    font-size: 3.5rem;
+    color: #ff0a54;
+    margin-bottom: 1rem;
+}
+
+.celebration-message {
+    font-size: 2rem;
+    color: #ff4d6d;
+}
+
+/* Emoji / GIF Placeholder */
+.gif-placeholder img {
+    max-width: 150px;
+    /* Keep it small and cute */
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+/* Confetti Container */
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+    overflow: hidden;
+}
+
+.confetti {
+    position: absolute;
+    top: -10px;
+    font-size: 24px;
+    user-select: none;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(720deg);
+    }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 600px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .btn {
+        font-size: 1.2rem;
+        padding: 10px 24px;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+
+}
